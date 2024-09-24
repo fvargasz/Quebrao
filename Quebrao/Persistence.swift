@@ -13,9 +13,28 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
+        
+        let categories = ["Ocio", "Inversion", "Renta", "Telefono", "Gym",
+        "Ropa", "Transporte", "Carro", "Gasolina", "Take out",
+        "Comida", "Streaming", "Medicina", "Higiene/Cosmeticos", "Agua",
+        "Muebles", "Electricidad", "Musica"]
+        
+        var listedCategories : [Category] = []
+        
+        for category in categories {
+            let newCategory = Category(context: viewContext)
+            newCategory.name = category
+            listedCategories.append(newCategory)
+        }
+        
+        for i in 0..<10 {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
+            let newTransaction = Transactions(context: viewContext)
+            newTransaction.date = Date()
+            newTransaction.amount = 1000
+            newTransaction.category = listedCategories[i]
+            newTransaction.income = false
         }
         do {
             try viewContext.save()

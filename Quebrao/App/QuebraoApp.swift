@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
-
 @main
 struct QuebraoApp: App {
     let persistenceController = PersistenceController.shared
-
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

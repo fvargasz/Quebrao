@@ -1,0 +1,74 @@
+[
+  {
+    "categoryId": "1",
+    "name": "Ocio"
+  },
+  {
+    "categoryId": "2",
+    "name": "Inversión"
+  },
+  {
+    "categoryId": "3",
+    "name": "Renta"
+  },
+  {
+    "categoryId": "4",
+    "name": "Teléfono"
+  },
+  {
+    "categoryId": "5",
+    "name": "Gym"
+  },
+  {
+    "categoryId": "6",
+    "name": "Ropa"
+  },
+  {
+    "categoryId": "7",
+    "name": "Transporte"
+  },
+  {
+    "categoryId": "8",
+    "name": "Carro"
+  },
+  {
+    "categoryId": "9",
+    "name": "Gasolina"
+  },
+  {
+    "categoryId": "10",
+    "name": "Take out"
+  },
+  {
+    "categoryId": "11",
+    "name": "Comida"
+  },
+  {
+    "categoryId": "12",
+    "name": "Streaming"
+  },
+  {
+    "categoryId": "13",
+    "name": "Medicina"
+  },
+  {
+    "categoryId": "14",
+    "name": "Higiene/Cosmeticos"
+  },
+  {
+    "categoryId": "15",
+    "name": "Agua"
+  },
+  {
+    "categoryId": "16",
+    "name": "Muebles"
+  },
+  {
+    "categoryId": "17",
+    "name": "Electricidad"
+  },
+  {
+    "categoryId": "18",
+    "name": "Música"
+  }
+]

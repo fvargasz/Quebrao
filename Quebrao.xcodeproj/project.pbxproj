@@ -13,6 +13,14 @@
 		C6103A482C600533006AAD1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6103A472C600533006AAD1F /* Preview Assets.xcassets */; };
 		C6103A4A2C600533006AAD1F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6103A492C600533006AAD1F /* Persistence.swift */; };
 		C6103A4D2C600533006AAD1F /* Quebrao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6103A4B2C600533006AAD1F /* Quebrao.xcdatamodeld */; };
+		C6103A8B2C6034CE006AAD1F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6103A8A2C6034CE006AAD1F /* MainTabView.swift */; };
+		C6103A8D2C603925006AAD1F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6103A8C2C603925006AAD1F /* HomeView.swift */; };
+		C6103A8F2C603A87006AAD1F /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6103A8E2C603A87006AAD1F /* TransactionsView.swift */; };
+		C6103A932C612A84006AAD1F /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6103A922C612A84006AAD1F /* Fonts.swift */; };
+		C6103A9E2C614C6E006AAD1F /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6103A9D2C614C6E006AAD1F /* AddTransactionView.swift */; };
+		C612A0872C652CEA00AEB4C2 /* MonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C612A0862C652CEA00AEB4C2 /* MonthYearPicker.swift */; };
+		C6AC29592C63E38000537522 /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AC29582C63E38000537522 /* TransactionDetailView.swift */; };
+		C6AC295B2C641B7B00537522 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = C6AC295A2C641B7B00537522 /* categories.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +31,14 @@
 		C6103A472C600533006AAD1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C6103A492C600533006AAD1F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		C6103A4C2C600533006AAD1F /* Quebrao.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quebrao.xcdatamodel; sourceTree = "<group>"; };
+		C6103A8A2C6034CE006AAD1F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		C6103A8C2C603925006AAD1F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C6103A8E2C603A87006AAD1F /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
+		C6103A922C612A84006AAD1F /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		C6103A9D2C614C6E006AAD1F /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
+		C612A0862C652CEA00AEB4C2 /* MonthYearPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPicker.swift; sourceTree = "<group>"; };
+		C6AC29582C63E38000537522 /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
+		C6AC295A2C641B7B00537522 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +71,13 @@
 		C6103A3F2C600532006AAD1F /* Quebrao */ = {
 			isa = PBXGroup;
 			children = (
-				C6103A402C600532006AAD1F /* QuebraoApp.swift */,
-				C6103A422C600532006AAD1F /* ContentView.swift */,
+				C6103A7B2C602FDC006AAD1F /* App */,
+				C6103A832C60300B006AAD1F /* Core */,
+				C6103A842C6030AA006AAD1F /* Utils */,
 				C6103A442C600533006AAD1F /* Assets.xcassets */,
 				C6103A492C600533006AAD1F /* Persistence.swift */,
 				C6103A4B2C600533006AAD1F /* Quebrao.xcdatamodeld */,
+				C6AC295A2C641B7B00537522 /* categories.json */,
 				C6103A462C600533006AAD1F /* Preview Content */,
 			);
 			path = Quebrao;
@@ -71,6 +89,84 @@
 				C6103A472C600533006AAD1F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C6103A7B2C602FDC006AAD1F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C6103A402C600532006AAD1F /* QuebraoApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C6103A832C60300B006AAD1F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C62CD6DD2C62CDF3003073A3 /* TransactionDetail */,
+				C6103A9C2C614C5B006AAD1F /* AddTransaction */,
+				C6103A882C603162006AAD1F /* Transactions */,
+				C6103A872C603159006AAD1F /* Home */,
+				C6103A862C60314E006AAD1F /* TabBar */,
+				C6103A852C603124006AAD1F /* Root */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C6103A842C6030AA006AAD1F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C6103A922C612A84006AAD1F /* Fonts.swift */,
+				C612A0862C652CEA00AEB4C2 /* MonthYearPicker.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C6103A852C603124006AAD1F /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				C6103A422C600532006AAD1F /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		C6103A862C60314E006AAD1F /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C6103A8A2C6034CE006AAD1F /* MainTabView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		C6103A872C603159006AAD1F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C6103A8C2C603925006AAD1F /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C6103A882C603162006AAD1F /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				C6103A8E2C603A87006AAD1F /* TransactionsView.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		C6103A9C2C614C5B006AAD1F /* AddTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				C6103A9D2C614C6E006AAD1F /* AddTransactionView.swift */,
+			);
+			path = AddTransaction;
+			sourceTree = "<group>";
+		};
+		C62CD6DD2C62CDF3003073A3 /* TransactionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C6AC29582C63E38000537522 /* TransactionDetailView.swift */,
+			);
+			path = TransactionDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,6 +185,8 @@
 			dependencies = (
 			);
 			name = Quebrao;
+			packageProductDependencies = (
+			);
 			productName = Quebrao;
 			productReference = C6103A3D2C600532006AAD1F /* Quebrao.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +215,9 @@
 				Base,
 			);
 			mainGroup = C6103A342C600532006AAD1F;
+			packageReferences = (
+				C612A0832C65248E00AEB4C2 /* XCRemoteSwiftPackageReference "MonthYearWheelPicker" */,
+			);
 			productRefGroup = C6103A3E2C600532006AAD1F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -132,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6103A482C600533006AAD1F /* Preview Assets.xcassets in Resources */,
+				C6AC295B2C641B7B00537522 /* categories.json in Resources */,
 				C6103A452C600533006AAD1F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,10 +245,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6103A9E2C614C6E006AAD1F /* AddTransactionView.swift in Sources */,
+				C6103A932C612A84006AAD1F /* Fonts.swift in Sources */,
 				C6103A4A2C600533006AAD1F /* Persistence.swift in Sources */,
 				C6103A432C600532006AAD1F /* ContentView.swift in Sources */,
+				C612A0872C652CEA00AEB4C2 /* MonthYearPicker.swift in Sources */,
 				C6103A412C600532006AAD1F /* QuebraoApp.swift in Sources */,
+				C6103A8D2C603925006AAD1F /* HomeView.swift in Sources */,
+				C6AC29592C63E38000537522 /* TransactionDetailView.swift in Sources */,
 				C6103A4D2C600533006AAD1F /* Quebrao.xcdatamodeld in Sources */,
+				C6103A8B2C6034CE006AAD1F /* MainTabView.swift in Sources */,
+				C6103A8F2C603A87006AAD1F /* TransactionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +397,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,6 +427,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -352,6 +463,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C612A0832C65248E00AEB4C2 /* XCRemoteSwiftPackageReference "MonthYearWheelPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bendodson/MonthYearWheelPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		C6103A4B2C600533006AAD1F /* Quebrao.xcdatamodeld */ = {
