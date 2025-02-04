@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23605" systemVersion="24C101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
-        <attribute name="categoryId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="origin" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transactions" inverseName="category" inverseEntity="Transactions"/>
+        <attribute name="categoryId" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="origin" toMany="YES" deletionRule="Nullify" destinationEntity="Transactions" inverseName="category" inverseEntity="Transactions"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <entity name="Transactions" representedClassName="Transactions" syncable="YES" codeGenerationType="class">
-        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="expenseID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="income" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="expenseID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="income" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="notes" attributeType="String"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="origin" inverseEntity="Category"/>
     </entity>
 </model>

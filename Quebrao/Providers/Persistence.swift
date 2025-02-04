@@ -7,7 +7,7 @@
 
 import CoreData
 
-struct PersistenceController {
+class PersistenceController : ObservableObject {
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
@@ -24,6 +24,7 @@ struct PersistenceController {
         for category in categories {
             let newCategory = Category(context: viewContext)
             newCategory.name = category
+            newCategory.categoryId = UUID()
             listedCategories.append(newCategory)
         }
         
@@ -35,12 +36,12 @@ struct PersistenceController {
             newTransaction.amount = 1000
             newTransaction.category = listedCategories[i]
             newTransaction.income = false
+            newTransaction.notes = ""
+            newTransaction.expenseID = UUID()
         }
         do {
             try viewContext.save()
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
@@ -56,20 +57,47 @@ struct PersistenceController {
         }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                fatalError("Unresolved error \(error.description), \(error.userInfo)")
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
+        LoadData()
+    }
+    
+    func LoadData() {
+        let viewContext = container.viewContext
+        
+        let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
+        
+        let categories = ["Ocio", "Inversion", "Renta", "Telefono", "Gym",
+        "Ropa", "Transporte", "Carro", "Gasolina", "Take out",
+        "Comida", "Streaming", "Medicina", "Higiene/Cosmeticos", "Agua",
+        "Muebles", "Electricidad", "Musica"]
+        
+        do {
+                let existingCategories = try viewContext.fetch(fetchRequest)
+                var existingCategoryNames = Set(existingCategories.map { $0.name ?? "" })
+                
+                for category in categories {
+                    if !existingCategoryNames.contains(category) {
+                        let newCategory = Category(context: viewContext)
+                        newCategory.name = category
+                        newCategory.categoryId = UUID()
+                        existingCategoryNames.insert(category)
+                    }
+                }
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        
+        do {
+            try viewContext.save()
+
+
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
     }
 }

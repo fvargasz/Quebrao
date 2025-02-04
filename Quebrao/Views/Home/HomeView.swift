@@ -26,6 +26,7 @@ struct HomeView: View {
     @State var totalAmountExpenses : Double = 0.00
     @State var totalAmountIncome : Double = 0.00
     
+    
     var body: some View {
         VStack{
             Text("Balance").font(Fonts.title).padding(.top, 20)
@@ -70,11 +71,45 @@ struct HomeView: View {
             // Get the current date's month
             let currentMonth = calendar.component(.month, from: Date())
             
+            var expenses: [String:Double] = [:]
+            
+            for transaction in transactions {
+                let dateMonth = calendar.component(.month, from: transaction.date!)
+                
+                if (currentMonth != dateMonth) {
+                    break
+                }
+                if transaction.income == false {
+                    totalAmountExpenses = totalAmountExpenses + transaction.amount
+                    let categoryName = transaction.category?.name
+                    if expenses.keys.contains(categoryName!) {
+                        expenses[categoryName!]! += transaction.amount
+                    } else {
+                        expenses[categoryName!] = transaction.amount
+                    }
+                    
+                } else {
+                    totalAmountIncome = totalAmountIncome + transaction.amount
+                }
+            }
+            
+            for (category, amount) in expenses {
+                if amount > 0.0 {
+                    let newItem = DataItem(type: category, amount: amount)
+                    data.append(newItem)
+                }
+                self.totalAmountExpenses = totalAmountExpenses
+                self.totalAmountIncome = totalAmountIncome
+            }
+            /*
             for category in categories {
                 var amount : Double = 0.0
                 
                 for transaction in transactions {
                 
+                    if transaction.category?.name != category.name {
+                        continue
+                    }
                     // Get the month of the provided date
                     let dateMonth = calendar.component(.month, from: transaction.date!)
                         
@@ -83,7 +118,7 @@ struct HomeView: View {
                         break
                     }
                     
-                    if (transaction.income == false && transaction.category?.name == category.name) {
+                    if (transaction.income == false) {
                         amount = amount + transaction.amount
                         totalAmountExpenses += transaction.amount
                     }
@@ -98,7 +133,7 @@ struct HomeView: View {
                 }
                 self.totalAmountExpenses = totalAmountExpenses
                 self.totalAmountIncome = totalAmountIncome
-            }
+            }*/
         }
     }
 }

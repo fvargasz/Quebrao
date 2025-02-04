@@ -8,7 +8,7 @@
 import SwiftUI
 @main
 struct QuebraoApp: App {
-    let persistenceController = PersistenceController.shared
+    @StateObject private var persistenceController = PersistenceController.shared
     
     var body: some Scene {
         WindowGroup {
