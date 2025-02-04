@@ -72,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				C6103A7B2C602FDC006AAD1F /* App */,
-				C6103A832C60300B006AAD1F /* Core */,
+				C6103A832C60300B006AAD1F /* Views */,
 				C6103A842C6030AA006AAD1F /* Utils */,
 				C6103A442C600533006AAD1F /* Assets.xcassets */,
 				C6103A492C600533006AAD1F /* Persistence.swift */,
@@ -99,7 +99,7 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		C6103A832C60300B006AAD1F /* Core */ = {
+		C6103A832C60300B006AAD1F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				C62CD6DD2C62CDF3003073A3 /* TransactionDetail */,
@@ -109,7 +109,7 @@
 				C6103A862C60314E006AAD1F /* TabBar */,
 				C6103A852C603124006AAD1F /* Root */,
 			);
-			path = Core;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C6103A842C6030AA006AAD1F /* Utils */ = {
