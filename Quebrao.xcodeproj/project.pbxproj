@@ -20,7 +20,9 @@
 		C6103A9E2C614C6E006AAD1F /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6103A9D2C614C6E006AAD1F /* AddTransactionView.swift */; };
 		C612A0872C652CEA00AEB4C2 /* MonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C612A0862C652CEA00AEB4C2 /* MonthYearPicker.swift */; };
 		C6AC29592C63E38000537522 /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AC29582C63E38000537522 /* TransactionDetailView.swift */; };
-		C6ADCDBD2D529D2800B3BCF6 /* QCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADCDBC2D529D2400B3BCF6 /* QCategory.swift */; };
+		C6ADCDBD2D529D2800B3BCF6 /* CategoryExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADCDBC2D529D2400B3BCF6 /* CategoryExpense.swift */; };
+		C6ADCDE32D53BE3700B3BCF6 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADCDE22D53BE3300B3BCF6 /* DateHolder.swift */; };
+		C6ADCDE52D53BF1E00B3BCF6 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADCDE42D53BF1800B3BCF6 /* CalendarHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,9 +40,11 @@
 		C6103A9D2C614C6E006AAD1F /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
 		C612A0862C652CEA00AEB4C2 /* MonthYearPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPicker.swift; sourceTree = "<group>"; };
 		C6AC29582C63E38000537522 /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
-		C6ADCDBC2D529D2400B3BCF6 /* QCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QCategory.swift; sourceTree = "<group>"; };
+		C6ADCDBC2D529D2400B3BCF6 /* CategoryExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExpense.swift; sourceTree = "<group>"; };
 		C6ADCDE02D52CB3300B3BCF6 /* QuebraoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuebraoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C6ADCDE12D52CF8500B3BCF6 /* QuebraoDataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "QuebraoDataModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		C6ADCDE22D53BE3300B3BCF6 /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
+		C6ADCDE42D53BF1800B3BCF6 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 		C6103A842C6030AA006AAD1F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C6ADCDE42D53BF1800B3BCF6 /* CalendarHelper.swift */,
+				C6ADCDE22D53BE3300B3BCF6 /* DateHolder.swift */,
 				C6103A922C612A84006AAD1F /* Fonts.swift */,
 				C612A0862C652CEA00AEB4C2 /* MonthYearPicker.swift */,
 			);
@@ -174,7 +180,7 @@
 		C6ADCDBB2D529D1C00B3BCF6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C6ADCDBC2D529D2400B3BCF6 /* QCategory.swift */,
+				C6ADCDBC2D529D2400B3BCF6 /* CategoryExpense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -262,16 +268,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6ADCDE32D53BE3700B3BCF6 /* DateHolder.swift in Sources */,
 				C6103A9E2C614C6E006AAD1F /* AddTransactionView.swift in Sources */,
 				C6103A932C612A84006AAD1F /* Fonts.swift in Sources */,
 				C6103A4A2C600533006AAD1F /* Persistence.swift in Sources */,
 				C6103A432C600532006AAD1F /* ContentView.swift in Sources */,
 				C612A0872C652CEA00AEB4C2 /* MonthYearPicker.swift in Sources */,
 				C6103A412C600532006AAD1F /* QuebraoApp.swift in Sources */,
+				C6ADCDE52D53BF1E00B3BCF6 /* CalendarHelper.swift in Sources */,
 				C6103A8D2C603925006AAD1F /* HomeView.swift in Sources */,
 				C6AC29592C63E38000537522 /* TransactionDetailView.swift in Sources */,
 				C6103A4D2C600533006AAD1F /* Quebrao.xcdatamodeld in Sources */,
-				C6ADCDBD2D529D2800B3BCF6 /* QCategory.swift in Sources */,
+				C6ADCDBD2D529D2800B3BCF6 /* CategoryExpense.swift in Sources */,
 				C6103A8B2C6034CE006AAD1F /* MainTabView.swift in Sources */,
 				C6103A8F2C603A87006AAD1F /* TransactionsView.swift in Sources */,
 			);

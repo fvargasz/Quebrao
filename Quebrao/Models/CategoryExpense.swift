@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct QCategory: Identifiable, Codable {
-    var id: Int
-    var name: String
+struct CategoryExpense: Identifiable {
+    let id = UUID()
+    let type: String
+    let amount: Double
 }

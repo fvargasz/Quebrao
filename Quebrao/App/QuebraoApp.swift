@@ -12,8 +12,11 @@ struct QuebraoApp: App {
     
     var body: some Scene {
         WindowGroup {
+            let context = persistenceController.container.viewContext
+            let dateHolder = DateHolder(context)
             MainTabView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(dateHolder)
         }
     }
 }
