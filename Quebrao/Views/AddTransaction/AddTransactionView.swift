@@ -81,6 +81,7 @@ struct AddTransactionView: View {
         newTransaction.notes = notes
         newTransaction.category = selectedCategory
         newTransaction.income = income
+        newTransaction.expenseID = UUID()
 
         do {
             try viewContext.save()

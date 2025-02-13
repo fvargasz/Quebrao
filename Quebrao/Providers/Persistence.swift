@@ -92,6 +92,9 @@ class PersistenceController : ObservableObject {
             }
         
         do {
+//            let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Transactions.fetchRequest()
+//                  let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
+//                  _ = try? container.viewContext.execute(batchDeleteRequest1)
             try viewContext.save()
         } catch {
             let nsError = error as NSError

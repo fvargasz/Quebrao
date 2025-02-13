@@ -10,11 +10,8 @@ import SwiftUI
 struct TransactionsView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Transactions.date, ascending: true)],
-        animation: .default)
-    private var transactions: FetchedResults<Transactions>
+    @EnvironmentObject var dateHolder: DateHolder
+    @State var transactions: [Transactions] = []
     
     var body: some View {
         NavigationView {
@@ -24,13 +21,37 @@ struct TransactionsView: View {
                         NavigationLink (destination: TransactionDetailView(transaction: item), label: {
                             Text("\(item.amount, specifier: "%.2f") \(item.category?.name ?? "Uknown)")")
                         })
-                    }
+                    }.onDelete(perform: { indexSet in
+                        for index in indexSet {
+                            let id = transactions[index].expenseID
+                            
+                            let request = Transactions.fetchRequest()
+                            let predicate = NSPredicate(format: "expenseID == %@", id! as CVarArg)
+                            
+                            request.predicate = predicate
+                            
+                            do {
+                                let results = try viewContext.fetch(request)
+                                if let transaction = results.first {
+                                    viewContext.delete(transaction)
+                                    try viewContext.save()
+                                }
+                            } catch {
+                                let nsError = error as NSError
+                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                            }
+                            
+                        }
+                    })
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink{
                         AddTransactionView()
+                            .onDisappear {
+                                loadTransactions()
+                            }
                     } label: {
                         Label("", systemImage: "plus")
                     }
@@ -38,25 +59,17 @@ struct TransactionsView: View {
             }
             .padding()
             .onAppear {
-                
-                /*for tran in transactions {
-                    viewContext.delete(tran)
-                }
-                do {
-                    try viewContext.save()
-                } catch {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    let nsError = error as NSError
-                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                }*/
+                loadTransactions()
             }
         }
     }
-    
+    func loadTransactions() {
+        transactions = dateHolder.fetchTransactions(viewContext)
+    }
 }
 
 #Preview {
     TransactionsView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        .environmentObject(DateHolder(PersistenceController.preview.container.viewContext))
 }
 
