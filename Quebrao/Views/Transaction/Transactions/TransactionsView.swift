@@ -57,7 +57,6 @@ struct TransactionsView: View {
                     }
                 }
             }
-            .padding()
             .onAppear {
                 loadTransactions()
             }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C61002402D5E4B8A00519241 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610023F2D5E4B8A00519241 /* AddCategoryView.swift */; };
+		C61002442D5E4BDB00519241 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61002432D5E4BDB00519241 /* CategoryListView.swift */; };
 		C6103A412C600532006AAD1F /* QuebraoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6103A402C600532006AAD1F /* QuebraoApp.swift */; };
 		C6103A432C600532006AAD1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6103A422C600532006AAD1F /* ContentView.swift */; };
 		C6103A452C600533006AAD1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6103A442C600533006AAD1F /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C610023F2D5E4B8A00519241 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
+		C61002432D5E4BDB00519241 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		C6103A3D2C600532006AAD1F /* Quebrao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quebrao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6103A402C600532006AAD1F /* QuebraoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuebraoApp.swift; sourceTree = "<group>"; };
 		C6103A422C600532006AAD1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +62,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C610023E2D5E4B6D00519241 /* AddCategory */ = {
+			isa = PBXGroup;
+			children = (
+				C610023F2D5E4B8A00519241 /* AddCategoryView.swift */,
+			);
+			path = AddCategory;
+			sourceTree = "<group>";
+		};
+		C61002412D5E4BAB00519241 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C61002422D5E4BB900519241 /* CategoryList */,
+				C610023E2D5E4B6D00519241 /* AddCategory */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		C61002422D5E4BB900519241 /* CategoryList */ = {
+			isa = PBXGroup;
+			children = (
+				C61002432D5E4BDB00519241 /* CategoryListView.swift */,
+			);
+			path = CategoryList;
+			sourceTree = "<group>";
+		};
+		C61002452D5E4C3400519241 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				C6103A882C603162006AAD1F /* Transactions */,
+				C6103A9C2C614C5B006AAD1F /* AddTransaction */,
+				C62CD6DD2C62CDF3003073A3 /* TransactionDetail */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
 		C6103A342C600532006AAD1F = {
 			isa = PBXGroup;
 			children = (
@@ -108,9 +147,8 @@
 		C6103A832C60300B006AAD1F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C62CD6DD2C62CDF3003073A3 /* TransactionDetail */,
-				C6103A9C2C614C5B006AAD1F /* AddTransaction */,
-				C6103A882C603162006AAD1F /* Transactions */,
+				C61002452D5E4C3400519241 /* Transaction */,
+				C61002412D5E4BAB00519241 /* Category */,
 				C6103A872C603159006AAD1F /* Home */,
 				C6103A862C60314E006AAD1F /* TabBar */,
 				C6103A852C603124006AAD1F /* Root */,
@@ -271,8 +309,10 @@
 				C6ADCDE32D53BE3700B3BCF6 /* DateHolder.swift in Sources */,
 				C6103A9E2C614C6E006AAD1F /* AddTransactionView.swift in Sources */,
 				C6103A932C612A84006AAD1F /* Fonts.swift in Sources */,
+				C61002402D5E4B8A00519241 /* AddCategoryView.swift in Sources */,
 				C6103A4A2C600533006AAD1F /* Persistence.swift in Sources */,
 				C6103A432C600532006AAD1F /* ContentView.swift in Sources */,
+				C61002442D5E4BDB00519241 /* CategoryListView.swift in Sources */,
 				C612A0872C652CEA00AEB4C2 /* MonthYearPicker.swift in Sources */,
 				C6103A412C600532006AAD1F /* QuebraoApp.swift in Sources */,
 				C6ADCDE52D53BF1E00B3BCF6 /* CalendarHelper.swift in Sources */,

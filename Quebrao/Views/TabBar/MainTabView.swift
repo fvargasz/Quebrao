@@ -19,6 +19,11 @@ struct MainTabView: View {
                 Image(systemName: "list.bullet")
                 Text("Transactions")
             } }
+            
+            CategoryListView().tabItem { VStack {
+                Image(systemName: "folder")
+                Text("Categories")
+            } }
         }
     }
 }
