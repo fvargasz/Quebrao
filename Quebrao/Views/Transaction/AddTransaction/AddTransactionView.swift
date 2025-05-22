@@ -26,6 +26,9 @@ struct AddTransactionView: View {
     
     @State var selectedCategory: Category?
     
+    var transactionToEdit : Transactions?
+    var onFinishEdit: () -> Void
+    
     var body: some View {
 
         VStack{
@@ -57,13 +60,14 @@ struct AddTransactionView: View {
             .padding(.trailing)
             HStack {
                 Spacer()
-                Picker("Category", selection: $selectedCategory) {
-                    ForEach(categories) { category in
-                        Text(category.name!).tag(Optional(category))
+                if selectedCategory != nil{
+                    Picker("Category", selection: $selectedCategory) {
+                        ForEach(categories) { category in
+                            Text(category.name!).tag(Optional(category))
+                        }
                     }
-                    .onAppear() {
-                        selectedCategory = categories[0]
-                    }
+                } else {
+                    ProgressView("Loading categories…")
                 }
             }
             
@@ -72,20 +76,40 @@ struct AddTransactionView: View {
                 .tint(.blue)
                 .foregroundColor(.white)
         }
+        .onAppear {
+            selectedCategory = categories[0]
+            if transactionToEdit != nil {
+                amount = transactionToEdit!.amount
+                amountText = String(format: "%.2f", transactionToEdit!.amount)
+                notes = transactionToEdit!.notes ?? ""
+                date = transactionToEdit!.date ?? Date()
+                income = transactionToEdit!.income
+            }
+        }
     }
     
     private func addTransaction() {
-        let newTransaction = Transactions(context: viewContext)
-        newTransaction.date = date
-        newTransaction.amount = amount
-        newTransaction.notes = notes
-        newTransaction.category = selectedCategory
-        newTransaction.income = income
-        newTransaction.expenseID = UUID()
+        if transactionToEdit != nil {
+            transactionToEdit!.date = date
+            transactionToEdit!.amount = amount
+            transactionToEdit!.notes = notes
+            transactionToEdit!.category = selectedCategory
+            transactionToEdit!.income = income
 
+        }
+        else {
+            let newTransaction = Transactions(context: viewContext)
+            newTransaction.date = date
+            newTransaction.amount = amount
+            newTransaction.notes = notes
+            newTransaction.category = selectedCategory
+            newTransaction.income = income
+            newTransaction.expenseID = UUID()
+        }
         do {
             try viewContext.save()
             self.presentationMode.wrappedValue.dismiss()
+            onFinishEdit()
         } catch {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
@@ -94,5 +118,5 @@ struct AddTransactionView: View {
 }
 
 #Preview {
-    AddTransactionView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    AddTransactionView(onFinishEdit: {}).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

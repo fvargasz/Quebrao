@@ -11,19 +11,18 @@ struct TransactionsView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var dateHolder: DateHolder
-    @State var transactions: [Transactions] = []
     
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(transactions) { item in
-                        NavigationLink (destination: TransactionDetailView(transaction: item), label: {
+                    ForEach(dateHolder.transactionsDone, id: \.self) { item in
+                        NavigationLink (destination: AddTransactionView(transactionToEdit: item, onFinishEdit: loadTransactions), label: {
                             Text("\(item.amount, specifier: "%.2f") \(item.category?.name ?? "Uknown)")")
                         })
                     }.onDelete(perform: { indexSet in
                         for index in indexSet {
-                            let id = transactions[index].expenseID
+                            let id = dateHolder.transactionsDone[index].expenseID
                             
                             let request = Transactions.fetchRequest()
                             let predicate = NSPredicate(format: "expenseID == %@", id! as CVarArg)
@@ -48,7 +47,7 @@ struct TransactionsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink{
-                        AddTransactionView()
+                        AddTransactionView(onFinishEdit: loadTransactions)
                             .onDisappear {
                                 loadTransactions()
                             }
@@ -63,7 +62,7 @@ struct TransactionsView: View {
         }
     }
     func loadTransactions() {
-        transactions = dateHolder.fetchTransactions(viewContext)
+        dateHolder.refreshTaskItems(viewContext)
     }
 }
 
