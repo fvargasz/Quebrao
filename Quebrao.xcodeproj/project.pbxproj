@@ -22,7 +22,6 @@
 		C6103A9E2C614C6E006AAD1F /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6103A9D2C614C6E006AAD1F /* AddTransactionView.swift */; };
 		C612A0872C652CEA00AEB4C2 /* MonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C612A0862C652CEA00AEB4C2 /* MonthYearPicker.swift */; };
 		C6ABCD5C2DDE9B5B00E8FEA3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6ABCD5B2DDE9B5B00E8FEA3 /* Launch Screen.storyboard */; };
-		C6AC29592C63E38000537522 /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AC29582C63E38000537522 /* TransactionDetailView.swift */; };
 		C6ADCDBD2D529D2800B3BCF6 /* CategoryExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADCDBC2D529D2400B3BCF6 /* CategoryExpense.swift */; };
 		C6ADCDE32D53BE3700B3BCF6 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADCDE22D53BE3300B3BCF6 /* DateHolder.swift */; };
 		C6ADCDE52D53BF1E00B3BCF6 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADCDE42D53BF1800B3BCF6 /* CalendarHelper.swift */; };
@@ -47,7 +46,6 @@
 		C677269A2D5FCE1A0035DDB3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C6ABCD5B2DDE9B5B00E8FEA3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C6ABCD5D2DDEA20D00E8FEA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		C6AC29582C63E38000537522 /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
 		C6ADCDBC2D529D2400B3BCF6 /* CategoryExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExpense.swift; sourceTree = "<group>"; };
 		C6ADCDE02D52CB3300B3BCF6 /* QuebraoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuebraoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C6ADCDE12D52CF8500B3BCF6 /* QuebraoDataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "QuebraoDataModel 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			children = (
 				C6103A882C603162006AAD1F /* Transactions */,
 				C6103A9C2C614C5B006AAD1F /* AddTransaction */,
-				C62CD6DD2C62CDF3003073A3 /* TransactionDetail */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -214,14 +211,6 @@
 			path = AddTransaction;
 			sourceTree = "<group>";
 		};
-		C62CD6DD2C62CDF3003073A3 /* TransactionDetail */ = {
-			isa = PBXGroup;
-			children = (
-				C6AC29582C63E38000537522 /* TransactionDetailView.swift */,
-			);
-			path = TransactionDetail;
-			sourceTree = "<group>";
-		};
 		C6ABCD5A2DDE9B3800E8FEA3 /* SplashScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,7 +322,6 @@
 				C6103A412C600532006AAD1F /* QuebraoApp.swift in Sources */,
 				C6ADCDE52D53BF1E00B3BCF6 /* CalendarHelper.swift in Sources */,
 				C6103A8D2C603925006AAD1F /* HomeView.swift in Sources */,
-				C6AC29592C63E38000537522 /* TransactionDetailView.swift in Sources */,
 				C6103A4D2C600533006AAD1F /* Quebrao.xcdatamodeld in Sources */,
 				C6ADCDBD2D529D2800B3BCF6 /* CategoryExpense.swift in Sources */,
 				C6103A8B2C6034CE006AAD1F /* MainTabView.swift in Sources */,
