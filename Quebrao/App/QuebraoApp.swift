@@ -17,6 +17,7 @@ struct QuebraoApp: App {
             MainTabView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(dateHolder)
+                .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
         }
     }
 }

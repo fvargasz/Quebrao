@@ -19,11 +19,13 @@ struct AddCategoryView: View {
     var body: some View {
         VStack{
             
-            TextField("Category name", text: $categoryName)
+            TextField(String(localized: "CategoryName", comment: "Placeholder to hint to the user to write a category name"), text: $categoryName)
                 .padding(.leading)
             
             
-            Button("Save", action: {})
+            Button(String(format: NSLocalizedString("Save", comment: "Label to store a category")), action: {
+                addCategory()
+            })
                 .buttonStyle(.borderedProminent)
                 .tint(.blue)
                 .foregroundColor(.white)

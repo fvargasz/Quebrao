@@ -52,53 +52,60 @@ class PersistenceController : ObservableObject {
 
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Quebrao")
-        if inMemory {
-            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+        
+        if let description = container.persistentStoreDescriptions.first {
+            if inMemory {
+                container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+            }
+            
+            description.shouldMigrateStoreAutomatically = true
+            description.shouldInferMappingModelAutomatically = true
         }
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error.description), \(error.userInfo)")
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
-        LoadData()
+        // LoadData()
     }
     
-    func LoadData() {
-        let viewContext = container.viewContext
-        
-        let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
-        
-        let categories = ["Ocio", "Inversion", "Renta", "Telefono", "Gym",
-        "Ropa", "Transporte", "Carro", "Gasolina", "Take out",
-        "Comida", "Streaming", "Medicina", "Higiene/Cosmeticos", "Agua",
-        "Muebles", "Electricidad", "Musica"]
-        
-        do {
-                let existingCategories = try viewContext.fetch(fetchRequest)
-                var existingCategoryNames = Set(existingCategories.map { $0.name ?? "" })
-                
-                for category in categories {
-                    if !existingCategoryNames.contains(category) {
-                        let newCategory = Category(context: viewContext)
-                        newCategory.name = category
-                        newCategory.categoryId = UUID()
-                        existingCategoryNames.insert(category)
-                    }
-                }
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        
-        do {
-//            let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Transactions.fetchRequest()
+//    func LoadData() {
+//        let viewContext = container.viewContext
+//        
+//        let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
+//        
+//        let categories = ["Ocio", "Inversion", "Renta", "Telefono", "Gym",
+//        "Ropa", "Transporte", "Carro", "Gasolina", "Take out",
+//        "Comida", "Streaming", "Medicina", "Higiene/Cosmeticos", "Agua",
+//        "Muebles", "Electricidad", "Musica"]
+//        
+//        do {
+//                let existingCategories = try viewContext.fetch(fetchRequest)
+//                var existingCategoryNames = Set(existingCategories.map { $0.name ?? "" })
+//                
+//                for category in categories {
+//                    if !existingCategoryNames.contains(category) {
+//                        let newCategory = Category(context: viewContext)
+//                        newCategory.name = category
+//                        newCategory.categoryId = UUID()
+//                        existingCategoryNames.insert(category)
+//                    }
+//                }
+//            } catch {
+//                let nsError = error as NSError
+//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//            }
+//        
+//        do {
+//        let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Transactions.fetchRequest()
 //                  let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
-//                  _ = try? container.viewContext.execute(batchDeleteRequest1)
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-    }
+//                 _ = try? container.viewContext.execute(batchDeleteRequest1)
+//            try viewContext.save()
+//        } catch {
+//            let nsError = error as NSError
+//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//        }
+//    }
 }
