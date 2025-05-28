@@ -35,11 +35,11 @@ struct HomeView: View {
                 .padding()
             
 
-            Text("Balance").font(Fonts.title).padding(.top, 20)
+            Text(LocalizedStringResource("Balance")).font(Fonts.title).padding(.top, 20)
             Text(netBalance).font(Fonts.title)
         
             if (!anyExpense) {
-                Text("No gastaste nada este mes!")
+                Text(LocalizedStringResource("NoExpenses"))
             }
             
             Chart (data, id: \.type) { dataItem in
@@ -59,8 +59,9 @@ struct HomeView: View {
                     HStack {
                         Text(item.type)
                         Spacer()
-                        Text("\(item.amount, specifier: "%.2f") ")
-                        Text("\((item.amount * 100) / totalAmountExpenses, specifier: "%.2f")%")
+                        Text(String(item.amount))
+                        
+                        Text(String(format: "%.2f", (item.amount * 100) / totalAmountExpenses) + "%")
                     }
                 }
             }
@@ -99,7 +100,7 @@ struct HomeView: View {
             }
         }
         
-        netBalance = String(format: "%.2f", totalAmountIncome - totalAmountExpenses)
+        netBalance = String(totalAmountIncome - totalAmountExpenses)
         
         for (category, amount) in expenses {
             if amount > 0.0 {

@@ -20,9 +20,9 @@ class DateHolder: ObservableObject
     }
     
     func refreshTaskItems(_ context: NSManagedObjectContext)
-        {
-            transactionsDone = fetchTransactions(context)
-        }
+    {
+        transactionsDone = fetchTransactions(context)
+    }
     
     func monthlyTransactionsRequest() -> NSFetchRequest<Transactions> {
         let request = Transactions.fetchRequest()

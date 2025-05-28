@@ -27,11 +27,11 @@ struct CategoryListView: View {
             VStack {
                 List {
                     ForEach(categories) { category in
-                        NavigationLink{
+                        NavigationLink {
                             AddCategoryView(categoryToEdit : category)
                         }
                         label: {
-                            Text(category.name ?? "No Name")
+                            Text(category.name!)
                         }
                     }
                 }

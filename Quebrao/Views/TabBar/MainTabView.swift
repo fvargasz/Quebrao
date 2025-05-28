@@ -12,17 +12,17 @@ struct MainTabView: View {
         TabView {
             HomeView().tabItem { VStack {
                 Image(systemName: "chart.pie.fill")
-                Text("Home")
+                Text("Home", comment: "Label for Home page icon in tab bar")
             } }
             
             TransactionsView().tabItem { VStack {
                 Image(systemName: "list.bullet")
-                Text("Transactions")
+                Text("Trasactions", comment: "Label for Trasactions page icon in tab bar")
             } }
             
             CategoryListView().tabItem { VStack {
                 Image(systemName: "folder")
-                Text("Categories")
+                Text("Categories", comment: "Label for Categories page icon in tab bar")
             } }
         }
     }
