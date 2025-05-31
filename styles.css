@@ -63,6 +63,8 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
 }
 
 a, a:visited, a:active {
